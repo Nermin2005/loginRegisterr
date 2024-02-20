@@ -7,7 +7,7 @@ import com.nermin.loginregister.dto.UserDTO;
 
 
 public interface UserService {
-    Result register(User user);
+    Result register(UserDTO userDTO);
     DataResult<User> login(String userName, String password);
 
 

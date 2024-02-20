@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private UserService userService;
 @PostMapping("/register")
-    public Result register(@RequestBody User user) {
-    return this.userService.register(user);
+    public Result register(@RequestBody UserDTO userDTO) {
+    return this.userService.register(userDTO);
 }
 @GetMapping("/login")
     public DataResult<User> login(@RequestParam String userName,@RequestParam String password) {

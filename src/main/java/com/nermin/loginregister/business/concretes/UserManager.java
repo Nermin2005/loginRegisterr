@@ -24,14 +24,17 @@ User user=this.userDao.findByUserNameAndPassword(userName,password); if (user ==
     }
 
     @Override
-    public Result register(User user) {
+    public Result register(UserDTO userDTO) {
+        User user=new User();
+        user.setUserName(userDTO.getUserName());
+        user.setPassword(user.getPassword());
         String password=user.getPassword();
         if(password.length()>8) {
             this.userDao.save(user);
             return new SuccessResult("Melumatlar save olundu");
         }
         else {
-            return new ErrorDataResult<>("Zeif koddur,zehmet olmasa yeniden yazin");
+            return new ErrorResult("Zeif koddur,zehmet olmasa yeniden yazin");
         }
     }
 }
